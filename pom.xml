@@ -30,6 +30,7 @@
         <module>security-study</module>
         <module>cache-study</module>
         <module>execution-study</module>
+        <module>datalog-study</module>
     </modules>
 
     <build>
