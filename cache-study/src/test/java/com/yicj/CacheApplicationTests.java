@@ -20,4 +20,10 @@ public class CacheApplicationTests {
 		System.out.println("call:"+menuService.getMenuList());
 	}
 
+	@Test
+	public void testInnerCall(){
+		System.out.println("call:"+menuService.getRecommends());
+		System.out.println("call:"+menuService.getRecommends());
+	}
+
 }
