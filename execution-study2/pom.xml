@@ -9,14 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>execution-study</artifactId>
+    <artifactId>execution-study2</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>execution-stage1</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>1.5.2.RELEASE</version>
+                <version>1.4.3.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
