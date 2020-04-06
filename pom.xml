@@ -26,6 +26,8 @@
 
     <modules>
         <module>transaction-study</module>
+        <module>security-study</module>
+        <module>cache-study</module>
     </modules>
 
 </project>

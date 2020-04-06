@@ -1,6 +1,6 @@
 package com.yicj;
 
-import com.yicj.service.UserService;
+import com.yicj.service.MenuService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +9,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TransactionApplicationTest {
+public class CacheApplicationTests {
 
-    @Autowired
-    private UserService demoService;
+	@Autowired
+	private MenuService menuService;
 
-    @Test
-    public void testWithoutTransaction() {
-        demoService.addUser("tom");
-    }
+	@Test
+	public void testCache() {
+		System.out.println("call:"+menuService.getMenuList());
+		System.out.println("call:"+menuService.getMenuList());
+	}
+
 }
