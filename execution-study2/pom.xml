@@ -15,6 +15,7 @@
         <module>execution-stage1</module>
         <module>execution-stage2</module>
         <module>execution-stage3</module>
+        <module>execution-stage4</module>
     </modules>
 
 
