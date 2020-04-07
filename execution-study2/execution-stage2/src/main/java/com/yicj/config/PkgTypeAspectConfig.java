@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PkgTypeAspectConfig {
 
-    @Pointcut("within(com.yicj.service.ProductService)")
+    @Pointcut("within(com.yicj.service.sub.*)")
     public void matchType(){}
 
     @Before("matchType()")
