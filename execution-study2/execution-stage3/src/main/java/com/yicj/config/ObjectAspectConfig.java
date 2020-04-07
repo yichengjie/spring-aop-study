@@ -23,8 +23,11 @@ public class ObjectAspectConfig {
     @Pointcut("this(com.yicj.log.Loggable)")
     public void thisMatchCondition(){}
 
-   // @Pointcut("bean(logService)")
-   // public void matchCondition(){}
+    @Pointcut("bean(logService)")
+    public void beanMatchCondition(){}
+
+    @Pointcut("within(com.yicj.service.*)")
+    public void pkgMatchCondition(){}
 
 
     @Before("thisMatchCondition()")
