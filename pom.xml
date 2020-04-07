@@ -31,7 +31,6 @@
         <module>cache-study</module>
         <module>execution-study</module>
         <module>datalog-study</module>
-        <module>execution-study2</module>
     </modules>
 
     <build>
