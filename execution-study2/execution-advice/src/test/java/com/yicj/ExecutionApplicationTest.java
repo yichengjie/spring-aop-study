@@ -1,5 +1,7 @@
 package com.yicj;
 
+import com.yicj.bean.Product;
+import com.yicj.log.LogService;
 import com.yicj.service.ProductService;
 import com.yicj.service.sub.SubService;
 import org.junit.Test;
@@ -18,6 +20,9 @@ public class ExecutionApplicationTest {
     @Autowired
     private SubService subService;
 
+    @Autowired
+    private LogService logService;
+
 
     @Test
     public void test() {
@@ -28,9 +33,12 @@ public class ExecutionApplicationTest {
         subService.demo();
         try{
             productService.exDemo();
-        }catch (IllegalAccessError e){
+        }catch (IllegalAccessException e){
             e.printStackTrace();
         }
+        logService.log();
+        productService.log();
+        logService.annoArg(new Product());
     }
 
 }
