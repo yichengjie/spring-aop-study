@@ -1,6 +1,6 @@
 package com.yicj;
 
-import com.yicj.log.LogService;
+import com.yicj.log.Loggable;
 import com.yicj.service.ProductService;
 import com.yicj.service.sub.SubService;
 import org.junit.Test;
@@ -20,7 +20,8 @@ public class ExecutionApplicationTests {
     private SubService subService;
 
     @Autowired
-    private LogService logService ;
+    private Loggable logService ;
+
 
 
     @Test
@@ -36,6 +37,7 @@ public class ExecutionApplicationTests {
             e.printStackTrace();
         }
         logService.log();
+        productService.log();
     }
 
 }
