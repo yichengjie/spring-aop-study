@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>execution-stage2</artifactId>
-
+    <artifactId>execution-args</artifactId>
     <dependencyManagement>
         <dependencies>
             <dependency>

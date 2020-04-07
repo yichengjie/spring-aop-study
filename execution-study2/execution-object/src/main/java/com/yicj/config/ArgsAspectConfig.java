@@ -20,13 +20,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArgsAspectConfig {
 
-    @Pointcut("args(Long)")
+    @Pointcut("args(Long) && within(com.yicj.service.*)")
     public void matchArgsLong(){}
 
     @Pointcut("args(Long,String) && within(com.yicj.service.*)")
+    public void matchArgsLongStr(){}
+
+    @Pointcut("args(Long,..) && within(com.yicj.service.*)")
     public void matchArgs(){}
 
-    @Before("matchArgsLong()")
+    @Before("matchArgs()")
     public void before(){
         System.out.println("");
         System.out.println("###before");
