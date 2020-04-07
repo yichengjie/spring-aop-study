@@ -17,6 +17,8 @@
         <module>execution-object</module>
         <module>execution-args</module>
         <module>execution-anno</module>
+        <module>execution-execution</module>
+        <module>execution-advice</module>
     </modules>
 
 
