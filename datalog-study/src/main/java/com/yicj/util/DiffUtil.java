@@ -3,12 +3,14 @@ package com.yicj.util;
 import com.alibaba.fastjson.JSON;
 import com.yicj.datalog.Datalog;
 import com.yicj.domain.ChangeItem;
+import com.yicj.domain.Product;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
@@ -25,9 +27,25 @@ public class DiffUtil {
     private static final Logger logger = LoggerFactory.getLogger(DiffUtil.class);
 
     public static Object getObjectById(Object target,Object id) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method findMethod = target.getClass().getDeclaredMethod("findById", Long.class);
+        Method findMethod = target.getClass().
+                getDeclaredMethod("findById", Long.class);
         Object oldObj = findMethod.invoke(target,id);
         return oldObj;
+    }
+
+    public static void main(String[] args) throws IntrospectionException {
+        Product product = new Product();
+        product.setId(1L);
+        product.setName("testName");
+//        List<ChangeItem> list = getInsertChangeItems(product);
+//        list.forEach(System.out::println);
+        BeanInfo beanInfo = Introspector.getBeanInfo(Product.class, Object.class);
+        PropertyDescriptor[] descriptors = beanInfo.getPropertyDescriptors();
+        for (int i = 0; i < descriptors.length ; i++) {
+            PropertyDescriptor descriptor = descriptors[i];
+            System.out.println(descriptor);
+        }
+
     }
 
     /**
@@ -169,8 +187,11 @@ public class DiffUtil {
             for (int i = 0; i < fields.length; i++) {
                 Class<?> fieldType = fields[i].getType();
                 String name = fields[i].getName();
-                Method method = clazz.getMethod("get" + name.substring(0, 1).toUpperCase() + name.substring(1));
-                Object value = method.invoke(bean);
+                //Method method = clazz.getMethod("get" + name.substring(0, 1).toUpperCase() + name.substring(1));
+                //Object value = method.invoke(bean);
+                fields[i].setAccessible(true);
+                Object value = fields[i].get(bean);
+
                 if (filterNull && value == null)
                     continue;
                 if (isBaseDataType(fieldType)) {

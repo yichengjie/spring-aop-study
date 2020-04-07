@@ -1,5 +1,8 @@
 package com.yicj.domain;
 
+import lombok.ToString;
+
+@ToString
 public class ChangeItem {
 
     private String field;
